@@ -1,7 +1,7 @@
 # =============================================================================
-#   mykro/java8-jre - A build on top of Debian 8 (Jessie)
+# A build on top of Debian 8 (Jessie)
 # -----------------------------------------------------------------------------
-#   Copyright (C) 2015 Matt Hartstonge
+#   Copyright (C) 2017 Paulo Alvarado
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #   Java is provided by Oracle and as such, by using of this container, you
 #   agree to Oracle's JRE License as well.
 # =============================================================================
-ROM debian:jessie
+FROM debian:jessie
 MAINTAINER Paulo Alvarado <paulo@alvarado.com.gt>
 
 ENV JAVA_VERSION "9.0.1"
