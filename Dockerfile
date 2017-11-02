@@ -19,23 +19,23 @@
 #   Java is provided by Oracle and as such, by using of this container, you
 #   agree to Oracle's JRE License as well.
 # =============================================================================
-FROM debian:jessie
+ROM debian:jessie
 MAINTAINER Paulo Alvarado <paulo@alvarado.com.gt>
 
-ENV JAVA_VERSION "8u72"
-ENV BUILD_VERSION "b15"
-ENV JDK_VERSION "1.8.0_72"
+ENV JAVA_VERSION "9.0.1"
+ENV BUILD_VERSION "11"
+ENV JDK_VERSION "9.0.1"
 
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
     && mkdir -p /usr/lib/jvm \
     && cd /usr/lib/jvm \
-    && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}-${BUILD_VERSION}/server-jre-${JAVA_VERSION}-linux-x64.tar.gz" \
-    && tar -zxvf server-jre-${JAVA_VERSION}-linux-x64.tar.gz \
-    && rm /usr/lib/jvm/server-jre-${JAVA_VERSION}-linux-x64.tar.gz \
+    && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}+${BUILD_VERSION}/serverjre-${JAVA_VERSION}_linux-x64_bin.tar.gz" \
+    && tar -zxvf serverjre-${JAVA_VERSION}_linux-x64_bin.tar.gz \
+    && rm /usr/lib/jvm/serverjre-${JAVA_VERSION}_linux-x64_bin.tar.gz \
     && ln -s /usr/lib/jvm/jdk${JDK_VERSION}/bin/java /bin/ \
-    && cd /usr/lib/jvm/jdk${JDK_VERSION} \
+    && cd /usr/lib/jvm/jdk-${JDK_VERSION} \
     && find . -type f -name '*.html' -delete \
     && find . -type f -name '*.bat' -delete \
     && find . -type f -name 'COPYRIGHT' -delete \
